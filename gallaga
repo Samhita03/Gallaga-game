@@ -1,0 +1,16 @@
+import pgzrun
+import random
+import time
+WIDTH= 800
+HEIGHT= 1000
+TITLE= "Gallaga game"
+score=0
+ship=Actor("ship")
+bug=Actor("bug")
+bullet=Actor("bullet")
+def draw():
+    screen.fill("blue")
+    ship.draw()
+    bug.draw()
+    bullet.draw()
+pgzrun.go()
