@@ -18,6 +18,7 @@ def draw():
       bullet.draw()
     screen.draw.text("score="+str(score),(50,50))
 def update():
+    global score
     if keyboard.left:
         ship.x=ship.x-2
     if keyboard.right:
@@ -26,4 +27,19 @@ def update():
         bullet=Actor("bullet")
         bullet.pos=(ship.pos)
         list.append(bullet)
+    bug.y=bug.y+2 
+    if bug.y>800:
+        bug.y=0
+        bug.x=random.randint(50,950)
+
+    for bullet in list:
+        bullet.y=bullet.y-5
+        if bullet.colliderect(bug):
+          score=score+1
+          bug.y=0
+          bug.x=random.randint(50,950)
+          list.remove(bullet)
+
+            
+
 pgzrun.go()
